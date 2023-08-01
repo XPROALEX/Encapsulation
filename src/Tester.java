@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 
 public class Tester {
-    public static void main (String[] args){
-        Scanner getHouseInfo=new Scanner(System.in);
-        House house=new House();
+    public static void main(String[] args) {
+        Scanner getHouseInfo = new Scanner(System.in);
+        House house = new House();
         System.out.print("Enter the number of floors: ");
         int floorsNumber = getHouseInfo.nextInt();
         house.setFloorsNumber(floorsNumber);
@@ -17,13 +17,13 @@ public class Tester {
 
         System.out.print("Enter resident names separated by comma (es alex,giorgio): ");
         String namesInput = getHouseInfo.nextLine();
-        house.setResidentsNames(new String[]{namesInput});
+        String[] namesList = namesInput.split(",");
+        house.setResidentsNames(namesList);
         getHouseInfo.close();
         String printFormat = String.format
                 ("House Details:%nFloors:%d %nAddress: %s%nResidents: %s",
-                 house.getFloorsNumber(),house.getAddress(),Arrays.toString(house.getResidentsNames()));
+                        house.getFloorsNumber(), house.getAddress(), Arrays.toString(house.getResidentsNames()));
 
         System.out.println(printFormat);
     }
-    }
-
+}
